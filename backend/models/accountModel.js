@@ -11,7 +11,7 @@ const accountSchema = mongoose.Schema(
       required: true,
     },
     fullname: {
-      type: Number,
+      type: String,
       required: true,
     },
   },

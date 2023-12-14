@@ -1,10 +1,16 @@
 import express from "express";
 import { PORT, mongoDBURL } from './config.js'
 import mongoose from "mongoose";
-import { Accounts } from "./models/accountModel.js"
-
+import  accountRoutes from './routes/accountRoutes.js';
+import cors from 'cors';
 
 const app = express();
+
+//middleware for parsing request body
+app.use(express.json());
+
+app.use('/accounts', accountRoutes);
+
 
 mongoose
     .connect(mongoDBURL)
@@ -17,3 +23,4 @@ mongoose
     .catch((error) => {
         console.log(error)
     })
+
