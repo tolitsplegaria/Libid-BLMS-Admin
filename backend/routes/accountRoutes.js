@@ -31,7 +31,7 @@ router.post('/', async (request, response) => {
 
   router.get('/', async (request, response) => {
     try {
-      const account = await Accounts.find({});
+      const account = await Accounts.find({ username: 'tolits'});
   
       return response.status(200).json({
         count: account.length,
